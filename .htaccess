@@ -1,0 +1,45 @@
+ErrorDocument 404 /404.html
+
+# Protect admin.php — deny bots and restrict access
+<Files "admin.php">
+  # Block search engines from indexing
+  Header set X-Robots-Tag "noindex, nofollow"
+</Files>
+
+# Protect backups folder completely
+<IfModule mod_authz_core.c>
+  <Directory "backups">
+    Require all denied
+  </Directory>
+</IfModule>
+
+# Prevent direct access to backups via URL
+<FilesMatch "^backup_.*\.zip$">
+  Require all denied
+</FilesMatch>
+
+# Options -Indexes
+
+# Redirect www to non-www
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.lukuabi-24\.ee [NC]
+RewriteRule ^ https://lukuabi-24.ee%{REQUEST_URI} [R=301,L]
+
+# Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# Cache static assets
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+# Gzip compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml
+</IfModule>

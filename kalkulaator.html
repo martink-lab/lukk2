@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<script src="auth.js"></script>
+<meta charset="UTF-8">
+<meta name="language" content="et">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lukuabi hinnakalkulator – LUKUABIPOOD OÜ</title>
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f2244;
+  --navy2:#1a3a6b;
+  --red:#d42b2b;
+  --gold:#f5a623;
+  --bg:#f5f7fa;
+  --white:#ffffff;
+  --border:#dde4f0;
+  --txt:#0f1f3d;
+  --txt2:#5a6a85;
+  --radius:16px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh}
+
+/* ── Hero ── */
+.hero{
+  background:var(--navy);
+  padding:48px 20px 0;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%, rgba(212,43,43,.18) 0%, transparent 70%);
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);
+  color:rgba(255,255,255,.75);font-size:.75rem;font-weight:600;letter-spacing:.08em;
+  padding:5px 14px;border-radius:50px;margin-bottom:20px;
+}
+.hero h1{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(2rem,5vw,3.2rem);color:#fff;
+  line-height:1.1;margin-bottom:12px;position:relative;
+}
+.hero h1 em{color:var(--red);font-style:normal}
+.hero p{color:rgba(255,255,255,.6);font-size:1rem;margin-bottom:0;max-width:480px;margin:0 auto;position:relative}
+.hero-wave{
+  display:block;width:100%;margin-top:36px;
+}
+
+/* ── Layout ── */
+.page{max-width:900px;margin:0 auto;padding:0 20px 60px}
+
+/* ── Steps ── */
+.steps{display:flex;justify-content:center;gap:0;margin-bottom:36px;padding-top:32px}
+.step{
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  position:relative;flex:1;max-width:120px;cursor:pointer;
+}
+.step:not(:last-child)::after{
+  content:'';position:absolute;top:18px;left:calc(50% + 18px);
+  right:calc(-50% + 18px);height:2px;background:var(--border);
+}
+.step.done:not(:last-child)::after{background:var(--navy2)}
+.step-dot{
+  width:36px;height:36px;border-radius:50%;
+  background:var(--white);border:2px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.82rem;font-weight:700;color:var(--txt2);
+  transition:.3s;z-index:1;position:relative;
+}
+.step.active .step-dot{background:var(--navy);border-color:var(--navy);color:#fff;box-shadow:0 0 0 4px rgba(26,58,107,.15)}
+.step.done .step-dot{background:var(--navy2);border-color:var(--navy2);color:#fff}
+.step-label{font-size:.7rem;font-weight:600;color:var(--txt2);text-align:center}
+.step.active .step-label{color:var(--navy);font-weight:700}
+
+/* ── Cards ── */
+.screen{display:none;animation:fadeUp .35s ease both}
+.screen.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+.card{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);padding:28px;margin-bottom:18px;box-shadow:0 2px 12px rgba(15,34,68,.06)}
+.card h2{font-family:'Syne',sans-serif;font-weight:700;font-size:1.15rem;margin-bottom:6px}
+.card .sub{font-size:.85rem;color:var(--txt2);margin-bottom:22px}
+
+/* ── Options grid ── */
+.options{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.opt{
+  border:2px solid var(--border);border-radius:12px;padding:16px;
+  cursor:pointer;transition:.2s;user-select:none;position:relative;
+}
+.opt:hover{border-color:var(--navy2);background:#f0f4fb}
+.opt.selected{border-color:var(--navy);background:#eef2fb}
+.opt.selected::after{
+  content:'✓';position:absolute;top:8px;right:10px;
+  font-size:.75rem;font-weight:700;color:var(--navy);
+}
+.opt-icon{font-size:1.6rem;margin-bottom:8px}
+.opt-title{font-weight:700;font-size:.9rem;margin-bottom:2px}
+.opt-sub{font-size:.76rem;color:var(--txt2)}
+.opt-price{font-size:.8rem;font-weight:700;color:var(--navy2);margin-top:6px}
+.opt-note{font-size:.68rem;color:var(--txt2);opacity:.75;margin-top:1px}
+
+/* ── Toggle options ── */
+.toggles{display:flex;flex-direction:column;gap:10px}
+.toggle-opt{
+  display:flex;align-items:center;justify-content:space-between;
+  border:2px solid var(--border);border-radius:12px;padding:14px 16px;
+  cursor:pointer;transition:.2s;
+}
+.toggle-opt:hover{border-color:var(--navy2)}
+.toggle-opt.selected{border-color:var(--navy);background:#eef2fb}
+.toggle-left{display:flex;align-items:center;gap:12px}
+.toggle-icon{font-size:1.3rem;width:32px;text-align:center}
+.toggle-info strong{display:block;font-size:.88rem;font-weight:700}
+.toggle-info span{font-size:.76rem;color:var(--txt2)}
+.toggle-price{font-size:.85rem;font-weight:700;color:var(--navy2);white-space:nowrap}
+
+/* ── Result card ── */
+.result-card{
+  background:linear-gradient(135deg,var(--navy),#1a3a6b);
+  border-radius:var(--radius);padding:32px;color:#fff;
+  margin-bottom:18px;position:relative;overflow:hidden;
+}
+.result-card::before{
+  content:'';position:absolute;top:-40px;right:-40px;
+  width:180px;height:180px;border-radius:50%;
+  background:rgba(255,255,255,.05);
+}
+.result-label{font-size:.72rem;font-weight:700;letter-spacing:.12em;opacity:.55;margin-bottom:6px;text-transform:uppercase}
+.result-price{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(2.4rem,6vw,3.8rem);line-height:1;margin-bottom:4px;
+}
+.result-range{font-size:.9rem;opacity:.65;margin-bottom:24px}
+.result-breakdown{
+  background:rgba(255,255,255,.1);border-radius:10px;padding:16px;
+  display:flex;flex-direction:column;gap:8px;
+}
+.result-row{display:flex;justify-content:space-between;font-size:.86rem}
+.result-row .name{opacity:.75}
+.result-row .val{font-weight:700}
+.result-row.total{
+  border-top:1px solid rgba(255,255,255,.2);
+  padding-top:8px;margin-top:2px;font-weight:700;font-size:.92rem;
+}
+.result-note{
+  font-size:.78rem;opacity:.55;margin-top:16px;line-height:1.6;
+}
+
+/* ── CTA ── */
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:4px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 22px;border-radius:10px;font-weight:700;font-size:.9rem;
+  cursor:pointer;border:none;font-family:'DM Sans',sans-serif;
+  transition:.2s;text-decoration:none;
+}
+.btn-red{background:var(--red);color:#fff}.btn-red:hover{background:#b82020}
+.btn-navy{background:var(--navy);color:#fff}.btn-navy:hover{background:var(--navy2)}
+.btn-ghost{background:transparent;border:2px solid var(--border);color:var(--txt2)}.btn-ghost:hover{border-color:var(--navy);color:var(--navy)}
+.btn-lg{padding:16px 28px;font-size:1rem}
+.btn-back{background:transparent;border:none;color:var(--txt2);font-size:.85rem;font-weight:600;cursor:pointer;padding:8px 0;font-family:inherit;display:flex;align-items:center;gap:5px}
+.btn-back:hover{color:var(--navy)}
+
+/* ── Nav ── */
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+
+/* ── Disclaimer ── */
+.disclaimer{
+  background:#fff8e8;border:1px solid #f5dc94;border-radius:10px;
+  padding:12px 16px;font-size:.78rem;color:#7a5c00;line-height:1.6;
+  margin-bottom:18px;
+}
+
+/* ── Lang switch ── */
+.lang-bar{
+  display:flex;justify-content:flex-end;gap:6px;padding:12px 20px;
+  max-width:900px;margin:0 auto;
+}
+.lang-btn{background:none;border:1.5px solid var(--border);border-radius:6px;padding:3px 10px;font-size:.75rem;font-weight:700;cursor:pointer;color:var(--txt2);font-family:inherit}
+.lang-btn.active{background:var(--navy);border-color:var(--navy);color:#fff}
+
+@media(max-width:600px){
+  .options{grid-template-columns:1fr 1fr}
+  .steps{gap:0}
+  .step-label{display:none}
+  .cta-row{flex-direction:column}
+  .btn-lg{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<div class="lang-bar">
+  <button class="lang-btn" onclick="setLang('et')" data-l="et">ET</button>
+  <button class="lang-btn" onclick="setLang('ru')" data-l="ru">RU</button>
+  <button class="lang-btn" onclick="setLang('en')" data-l="en">EN</button>
+</div>
+
+<div class="hero">
+  <div class="hero-badge">🔐 <span id="badge-txt">LUKUABIPOOD OÜ</span></div>
+  <h1 id="hero-h1">Arvuta <em>ligikaudne</em><br>hind koheselt</h1>
+  <p id="hero-p">Valige teenus ja lisaoptsioonid — me arvutame orienteeruva hinna 30 sekundiga.</p>
+  <svg class="hero-wave" viewBox="0 0 900 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,20 C150,40 300,0 450,20 C600,40 750,0 900,20 L900,40 L0,40 Z" fill="#f5f7fa"/>
+  </svg>
+</div>
+
+<div class="page">
+
+  <!-- Steps -->
+  <div class="steps" id="steps-bar">
+    <div class="step active" id="step1"><div class="step-dot">1</div><div class="step-label" id="sl1">Teenus</div></div>
+    <div class="step" id="step2"><div class="step-dot">2</div><div class="step-label" id="sl2">Lisad</div></div>
+    <div class="step" id="step3"><div class="step-dot">3</div><div class="step-label" id="sl3">Tulemus</div></div>
+  </div>
+
+  <!-- SCREEN 1: Service -->
+  <div class="screen active" id="screen1">
+    <div class="card">
+      <h2 id="s1-title">Millist teenust vajate?</h2>
+      <p class="sub" id="s1-sub">Valige üks põhiteenustest</p>
+      <div class="options" id="service-opts"></div>
+    </div>
+    <div style="text-align:right">
+      <button class="btn btn-navy" onclick="goStep(2)" id="btn-s1-next">Järgmine →</button>
+    </div>
+  </div>
+
+  <!-- SCREEN 2: Options -->
+  <div class="screen" id="screen2">
+    <div class="nav-row">
+      <button class="btn-back" onclick="goStep(1)">← <span id="back1">Tagasi</span></button>
+    </div>
+    <div class="card">
+      <h2 id="s2-title">Lisaoptsioonid</h2>
+      <p class="sub" id="s2-sub">Valige kõik mis kohaldub</p>
+      <div class="toggles" id="extra-opts"></div>
+    </div>
+    <div style="text-align:right">
+      <button class="btn btn-navy" onclick="goStep(3)" id="btn-s2-next">Arvuta hind →</button>
+    </div>
+  </div>
+
+  <!-- SCREEN 3: Result -->
+  <div class="screen" id="screen3">
+    <div class="nav-row">
+      <button class="btn-back" onclick="goStep(2)">← <span id="back2">Tagasi</span></button>
+    </div>
+
+    <div class="result-card">
+      <div class="result-label" id="r-label">Orienteeruv hind</div>
+      <div class="result-price" id="r-price">–</div>
+      <div class="result-range" id="r-range"></div>
+      <div class="result-breakdown" id="r-breakdown"></div>
+      <div class="result-note" id="r-note"></div>
+    </div>
+
+    <div class="disclaimer" id="r-disclaimer"></div>
+
+    <div class="cta-row">
+      <a href="tel:+37256817777" class="btn btn-red btn-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span id="btn-call">Helista kohe</span>
+      </a>
+      <a href="contact.html" class="btn btn-navy btn-lg" id="btn-write"></a>
+      <button class="btn btn-ghost" onclick="reset()" id="btn-reset"></button>
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+<script>
+// ── Translations ──────────────────────────────────────
+const T = {
+  et: {
+    badge:'LUKUABIPOOD OÜ', heroH1:'Arvuta <em>ligikaudne</em><br>hind koheselt',
+    heroP:'Valige teenus ja lisaoptsioonid — orienteeruv hind 30 sekundiga.',
+    sl:['Teenus','Lisad','Tulemus'],
+    s1Title:'Millist teenust vajate?', s1Sub:'Valige üks põhiteenustest',
+    s2Title:'Täpsustage olukord', s2Sub:'Valige kõik mis kohaldub',
+    next:'Järgmine →', calc:'Arvuta hind →', back:'← Tagasi',
+    rLabel:'Orienteeruv hind', rNote:'Hinnad sisaldavad väljakutsetasu (20 EUR) ja põhiteenust. Täpne hind sõltub luku tüübist ja olukorrast. Hind teatatakse alati enne töö algust. KM 24% sisaldub.',
+    disclaimer:'⚠️ See on kalkulaator annab ligikaudse hinnangu. Lõplik hind tehakse kindlaks kohapeal pärast olukorra hindamist.',
+    btnCall:'Helista kohe', btnWrite:'Kirjuta meile', btnReset:'Arvuta uuesti',
+    total:'Orienteeruv kokku',
+    services:[
+      {id:'open',    icon:'🚪', title:'Ukse avamine',      sub:'Jäite end lukku',            base:35, max:55,  unit:'EUR', note:'sis. väljakutse'},
+      {id:'car',     icon:'🚗', title:'Auto avamine',       sub:'Võtmed salongi',             base:35, max:55,  unit:'EUR', note:'sis. väljakutse'},
+      {id:'replace', icon:'🔄', title:'Luku vahetus',       sub:'Vana lukk vahetada',         base:40, max:80,  unit:'EUR + lukk', note:'sis. väljakutse'},
+      {id:'install', icon:'⚙️', title:'Luku paigaldus',     sub:'Uue luku paigaldamine',      base:45, max:100, unit:'EUR + lukk', note:'sis. väljakutse'},
+      {id:'repair',  icon:'🔧', title:'Luku remont',        sub:'Lukk ei tööta korralikult',  base:35, max:60,  unit:'EUR', note:'sis. väljakutse'},
+      {id:'safe',    icon:'🏦', title:'Seifi avamine',      sub:'Unustatud kood',             base:40, max:100, unit:'EUR', note:'sis. väljakutse'},
+      {id:'intercom',icon:'📱', title:'Fonolukk',           sub:'Paigaldus või remont',       base:45, max:170, unit:'EUR', note:'sis. väljakutse'},
+      {id:'smart',   icon:'📲', title:'Nutilukk',           sub:'Yale, Nuki, iNOVO',          base:45, max:80,  unit:'EUR + seade', note:'sis. väljakutse'},
+    ],
+    extras:[
+      {id:'night',   icon:'🌙', title:'Öötöö lisatasu',         sub:'22:00–08:00',           add:15},
+      {id:'weekend', icon:'📅', title:'Nädalavahetus',           sub:'laupäev–pühapäev',      add:10},
+      {id:'security',icon:'🔒', title:'Sertifitseeritud lukk',   sub:'Abloy, Mul-T-Lock jt', add:10},
+      {id:'urgent',  icon:'⚡', title:'Kiire väljakutse',        sub:'Alla 15 min',           add:15},
+
+    ],
+  },
+  ru: {
+    badge:'LUKUABIPOOD OÜ', heroH1:'Рассчитайте <em>примерную</em><br>стоимость сейчас',
+    heroP:'Выберите услугу и дополнительные опции — ориентировочная цена за 30 секунд.',
+    sl:['Услуга','Детали','Результат'],
+    s1Title:'Какая услуга нужна?', s1Sub:'Выберите одну основную услугу',
+    s2Title:'Уточните ситуацию', s2Sub:'Отметьте всё что подходит',
+    next:'Далее →', calc:'Рассчитать →', back:'← Назад',
+    rLabel:'Ориентировочная цена', rNote:'Цены включают стоимость выезда (20 EUR) и основную услугу. Точная цена зависит от типа замка. Всегда сообщается до начала работы. НДС 24% включён.',
+    disclaimer:'⚠️ Это калькулятор даёт приблизительную оценку. Окончательная цена определяется на месте после оценки ситуации.',
+    btnCall:'Позвонить сейчас', btnWrite:'Написать нам', btnReset:'Рассчитать снова',
+    total:'Ориентировочно итого',
+    services:[
+      {id:'open',    icon:'🚪', title:'Вскрытие двери',     sub:'Захлопнули дверь',          base:35, max:55,  unit:'EUR', note:'вкл. выезд'},
+      {id:'car',     icon:'🚗', title:'Вскрытие авто',      sub:'Ключи в машине',            base:35, max:55,  unit:'EUR', note:'вкл. выезд'},
+      {id:'replace', icon:'🔄', title:'Замена замка',        sub:'Заменить старый замок',     base:40, max:80,  unit:'EUR + замок', note:'вкл. выезд'},
+      {id:'install', icon:'⚙️', title:'Установка замка',    sub:'Установить новый замок',    base:45, max:100, unit:'EUR + замок', note:'вкл. выезд'},
+      {id:'repair',  icon:'🔧', title:'Ремонт замка',        sub:'Замок плохо работает',      base:35, max:60,  unit:'EUR', note:'вкл. выезд'},
+      {id:'safe',    icon:'🏦', title:'Вскрытие сейфа',     sub:'Забыл код',                 base:40, max:100, unit:'EUR', note:'вкл. выезд'},
+      {id:'intercom',icon:'📱', title:'Домофон',             sub:'Установка или ремонт',      base:45, max:170, unit:'EUR', note:'вкл. выезд'},
+      {id:'smart',   icon:'📲', title:'Умный замок',         sub:'Yale, Nuki, iNOVO',         base:45, max:80,  unit:'EUR + устройство', note:'вкл. выезд'},
+    ],
+    extras:[
+      {id:'night',   icon:'🌙', title:'Ночная работа',           sub:'22:00–08:00',           add:15},
+      {id:'weekend', icon:'📅', title:'Выходной день',           sub:'суббота–воскресенье',   add:10},
+      {id:'security',icon:'🔒', title:'Сертифицированный замок', sub:'Abloy, Mul-T-Lock и др',add:10},
+      {id:'urgent',  icon:'⚡', title:'Срочный вызов',           sub:'Менее 15 минут',        add:15},
+
+    ],
+  },
+  en: {
+    badge:'LUKUABIPOOD OÜ', heroH1:'Calculate an <em>estimate</em><br>in 30 seconds',
+    heroP:'Choose your service and options — get an approximate price instantly.',
+    sl:['Service','Details','Result'],
+    s1Title:'What service do you need?', s1Sub:'Choose one main service',
+    s2Title:'Tell us more', s2Sub:'Select all that apply',
+    next:'Next →', calc:'Calculate →', back:'← Back',
+    rLabel:'Estimated price', rNote:'Prices include callout fee (20 EUR) and the main service. Exact price depends on lock type. Always confirmed before work starts. VAT 24% included.',
+    disclaimer:'⚠️ This calculator gives an approximate estimate. The final price is determined on site after assessing the situation.',
+    btnCall:'Call now', btnWrite:'Write to us', btnReset:'Calculate again',
+    total:'Estimated total',
+    services:[
+      {id:'open',    icon:'🚪', title:'Door opening',      sub:'Locked out',                base:35, max:55,  unit:'EUR', note:'incl. callout'},
+      {id:'car',     icon:'🚗', title:'Car opening',       sub:'Keys locked inside',        base:35, max:55,  unit:'EUR', note:'incl. callout'},
+      {id:'replace', icon:'🔄', title:'Lock replacement',  sub:'Replace old lock',          base:40, max:80,  unit:'EUR + lock', note:'incl. callout'},
+      {id:'install', icon:'⚙️', title:'Lock installation', sub:'Install new lock',          base:45, max:100, unit:'EUR + lock', note:'incl. callout'},
+      {id:'repair',  icon:'🔧', title:'Lock repair',       sub:'Lock not working properly', base:35, max:60,  unit:'EUR', note:'incl. callout'},
+      {id:'safe',    icon:'🏦', title:'Safe opening',      sub:'Forgotten code',            base:40, max:100, unit:'EUR', note:'incl. callout'},
+      {id:'intercom',icon:'📱', title:'Intercom',          sub:'Installation or repair',    base:45, max:170, unit:'EUR', note:'incl. callout'},
+      {id:'smart',   icon:'📲', title:'Smart lock',        sub:'Yale, Nuki, iNOVO',         base:45, max:80,  unit:'EUR + device', note:'incl. callout'},
+    ],
+    extras:[
+      {id:'night',   icon:'🌙', title:'Night work surcharge',     sub:'10pm–8am',              add:15},
+      {id:'weekend', icon:'📅', title:'Weekend',                  sub:'Saturday–Sunday',       add:10},
+      {id:'security',icon:'🔒', title:'Certified security lock',  sub:'Abloy, Mul-T-Lock etc', add:10},
+      {id:'urgent',  icon:'⚡', title:'Urgent callout',           sub:'Under 15 min',          add:15},
+
+    ],
+  }
+};
+
+// ── State ─────────────────────────────────────────────
+let lang = localStorage.getItem('lang') || 'et';
+let selectedService = null;
+let selectedExtras  = new Set();
+let currentStep = 1;
+
+// ── Render language ───────────────────────────────────
+function $$(id){ return document.getElementById(id); }
+
+function render() {
+  const t = T[lang];
+  document.documentElement.lang = lang;
+  $$('badge-txt').textContent = t.badge;
+  $$('hero-h1').innerHTML = t.heroH1;
+  $$('hero-p').textContent = t.heroP;
+  ['sl1','sl2','sl3'].forEach((id,i) => { const el=$$(id); if(el) el.textContent=t.sl[i]; });
+  $$('s1-title').textContent = t.s1Title;
+  $$('s1-sub').textContent   = t.s1Sub;
+  $$('s2-title').textContent = t.s2Title;
+  $$('s2-sub').textContent   = t.s2Sub;
+  $$('btn-s1-next').textContent = t.next;
+  $$('btn-s2-next').textContent = t.calc;
+  ['back1','back2'].forEach(id => { const el=$$(id); if(el) el.textContent = t.back.replace('← ',''); });
+  $$('btn-call').textContent  = t.btnCall;
+  $$('btn-write').textContent = t.btnWrite;
+  $$('btn-reset').textContent = t.btnReset;
+  document.querySelectorAll('[data-l]').forEach(b => b.classList.toggle('active', b.dataset.l === lang));
+
+  renderServices();
+  renderExtras();
+  if (currentStep === 3) renderResult();
+}
+
+function renderServices() {
+  const t = T[lang];
+  const grid = $$('service-opts');
+  if (!grid) return;
+  grid.innerHTML = t.services.map(s => `
+    <div class="opt ${selectedService===s.id?'selected':''}" onclick="selectService('${s.id}')">
+      <div class="opt-icon">${s.icon}</div>
+      <div class="opt-title">${s.title}</div>
+      <div class="opt-sub">${s.sub}</div>
+      <div class="opt-price">alates ${s.base} ${s.unit}</div>
+      ${s.note ? '<div class="opt-note">'+s.note+'</div>' : ''}
+    </div>`).join('');
+}
+
+function renderExtras() {
+  const t = T[lang];
+  const cont = $$('extra-opts');
+  if (!cont) return;
+  cont.innerHTML = t.extras.map(e => `
+    <div class="toggle-opt ${selectedExtras.has(e.id)?'selected':''}" onclick="toggleExtra('${e.id}')">
+      <div class="toggle-left">
+        <div class="toggle-icon">${e.icon}</div>
+        <div class="toggle-info"><strong>${e.title}</strong><span>${e.sub}</span></div>
+      </div>
+      <div class="toggle-price">+${e.add} EUR</div>
+    </div>`).join('');
+}
+
+function renderResult() {
+  const t = T[lang];
+  if (!selectedService) return;
+  const svc = t.services.find(s => s.id === selectedService);
+  if (!svc) return;
+
+  let extra_total = 0;
+  const rows = [];
+  rows.push(`<div class="result-row"><span class="name">${svc.icon} ${svc.title}</span><span class="val">${svc.base} ${svc.unit}</span></div>`);
+
+  t.extras.forEach(e => {
+    if (selectedExtras.has(e.id)) {
+      extra_total += e.add;
+      rows.push(`<div class="result-row"><span class="name">${e.icon} ${e.title}</span><span class="val">+${e.add} EUR</span></div>`);
+    }
+  });
+
+  const base_min = svc.base + extra_total;
+  const base_max = svc.max + extra_total;
+
+  rows.push(`<div class="result-row total"><span class="name">${t.total}</span><span class="val">${base_min}–${base_max} EUR</span></div>`);
+
+  $$('r-label').textContent = t.rLabel;
+  $$('r-price').textContent = base_min + ' EUR';
+  $$('r-range').textContent = `(${base_min}–${base_max} EUR)`;
+  $$('r-breakdown').innerHTML = rows.join('');
+  $$('r-note').textContent = t.rNote;
+  $$('r-disclaimer').textContent = t.disclaimer;
+  $$('btn-write').textContent = t.btnWrite;
+  $$('btn-reset').textContent = t.btnReset;
+}
+
+// ── Actions ───────────────────────────────────────────
+function selectService(id) {
+  selectedService = id;
+  renderServices();
+}
+
+function toggleExtra(id) {
+  if (selectedExtras.has(id)) selectedExtras.delete(id);
+  else selectedExtras.add(id);
+  renderExtras();
+}
+
+function goStep(n) {
+  if (n === 2 && !selectedService) {
+    alert(T[lang].s1Sub + '!');
+    return;
+  }
+  currentStep = n;
+  // screens
+  document.querySelectorAll('.screen').forEach((s,i) => s.classList.toggle('active', i+1===n));
+  // steps
+  [1,2,3].forEach(i => {
+    const el = $$('step'+i);
+    if (!el) return;
+    el.classList.toggle('active', i===n);
+    el.classList.toggle('done',   i<n);
+  });
+  if (n === 3) renderResult();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function reset() {
+  selectedService = null;
+  selectedExtras.clear();
+  goStep(1);
+  render();
+}
+
+function setLang(l) {
+  lang = l;
+  localStorage.setItem('lang', l);
+  render();
+}
+
+// ── Init ──────────────────────────────────────────────
+render();
+</script>
+</body>
+</html>

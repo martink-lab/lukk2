@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<script src="auth.js"></script>
+<meta charset="UTF-8">
+<meta name="language" content="et">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lukkude Vahetus Tallinnas – LUKUABIPOOD OÜ</title>
+<meta name="description" content="Professionaalne luku vahetus ja paigaldus Tallinnas. Kõik luku tüübid, juhtivad tootjad. Alates 15 EUR.">
+<meta name="keywords" content="lukkude vahetus Tallinn, luku vahetus, luku paigaldus">
+<link rel="canonical" href="https://lukuabi-24.ee/lukkude-vahetus.html">
+<meta property="og:title" content="Lukkude vahetus Tallinnas | LUKUABIPOOD OÜ">
+<meta property="og:description" content="Professionaalne luku vahetus ja paigaldus Tallinnas. Abloy, CISA, Yale, Mul-T-Lock. Alates 15 EUR.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lukuabi-24.ee/lukkude-vahetus.html">
+<meta property="og:image" content="https://lukuabi-24.ee/images/og.jpg">
+<meta property="og:locale" content="et_EE">
+<meta property="og:site_name" content="LUKUABIPOOD OÜ">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Kui kiiresti kohale jõuate?", "acceptedAnswer": {"@type": "Answer", "text": "Tallinnas jõuame kohale tavaliselt 15–25 minutiga pärast väljakutset. Reageerime kiiresti ka nädalavahetustel."}}, {"@type": "Question", "name": "Kas avate uksi kahjustamata?", "acceptedAnswer": {"@type": "Answer", "text": "Jah, kasutame professionaalseid tööriistu, mis võimaldavad uksi avada ilma kahjustusi tekitamata. Enamasti jääb lukk täielikult terveks."}}, {"@type": "Question", "name": "Kas töötate nädalavahetustel?", "acceptedAnswer": {"@type": "Answer", "text": "Jah, töötame ka nädalavahetustel ja riiklikel pühadel. Helistage igal ajal."}}, {"@type": "Question", "name": "Kui palju maksab luku avamine?", "acceptedAnswer": {"@type": "Answer", "text": "Ühe luku avamine alates 9 EUR (KM 24% sisaldub). Täpne hind sõltub luku tüübist. Hind teatatakse alati enne töö algust."}}, {"@type": "Question", "name": "Millised lukud te avada oskate?", "acceptedAnswer": {"@type": "Answer", "text": "Avame kõikvõimalikke lukke: silinderlukke, turvalukke, sertifitseeritud lukke (Abloy, CISA, Mul-T-Lock) ja vanema konstruktsiooniga lukke."}}, {"@type": "Question", "name": "Kas saate aidata ka autoga?", "acceptedAnswer": {"@type": "Answer", "text": "Jah, avame kõikide markide autosid kiiresti ja kahjustuseta. Hind alates 10 EUR."}}, {"@type": "Question", "name": "Kas teete võtmeid või saab lukku ümber kodeerida?", "acceptedAnswer": {"@type": "Answer", "text": "Võtmete valmistamist me ei paku, kuid saame lukku ümber kodeerida — pärast seda vana võti enam ei tööta ja valmistatakse uus. Ideaalne lahendus kolimisel või võtmete kaotamisel."}}]}</script>
+<style>
+.srv-hero{background:linear-gradient(135deg,var(--navy2),var(--navy));color:#fff;padding:56px 0}
+.srv-hero h1{color:#fff;margin-bottom:12px}
+.srv-hero .lead{color:rgba(255,255,255,.82);max-width:640px;font-size:1.05rem}
+.benefits-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(275px,1fr));gap:18px}
+.benefit-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:22px;display:flex;gap:14px;align-items:flex-start;transition:.2s}
+.benefit-card:hover{box-shadow:var(--sh2);transform:translateY(-2px)}
+.benefit-icon{font-size:1.55rem;flex-shrink:0;line-height:1}
+.benefit-card h3{font-size:.93rem;font-weight:700;margin-bottom:4px}
+.benefit-card p{font-size:.83rem;color:var(--txt2)}
+.steps-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.step-item{display:flex;flex-direction:column;align-items:center;text-align:center;padding:24px 16px;position:relative}
+.step-item:not(:last-child)::after{content:"→";position:absolute;right:-10px;top:38%;font-size:1.3rem;color:var(--border)}
+.step-num{width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;font-weight:800;font-size:1.05rem;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.step-item h4{font-size:.88rem;font-weight:700;margin-bottom:4px}
+.step-item p{font-size:.8rem;color:var(--txt2)}
+.price-box{background:var(--bg2);border-left:4px solid var(--navy);border-radius:0 10px 10px 0;padding:18px 22px;font-size:.95rem;color:var(--txt2)}
+.price-box strong{color:var(--navy)}
+.faq-list{display:flex;flex-direction:column;gap:0;max-width:100%;margin:0}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:18px 4px;cursor:pointer;font-weight:700;font-size:.95rem;color:var(--txt);gap:16px;user-select:none}
+.faq-q:hover{color:var(--navy)}
+.faq-arrow{font-size:.9rem;color:var(--txt3);transition:transform .25s;flex-shrink:0}
+.faq-item.open .faq-arrow{transform:rotate(180deg)}
+.faq-a{display:none;padding:0 4px 18px;font-size:.88rem;color:var(--txt2);line-height:1.7}
+.faq-item.open .faq-a{display:block}
+.districts-section{background:var(--navy);color:#fff;padding:52px 0}
+.districts-section .sec-label{color:rgba(255,255,255,.55);background:rgba(255,255,255,.1);border-radius:20px;display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:4px 12px;margin-bottom:12px}
+.districts-section h2{color:#fff;margin-bottom:10px}
+.districts-section .sec-sub{color:rgba(255,255,255,.7);margin-bottom:28px}
+.districts-grid{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}
+.district-chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:50px;padding:8px 18px;font-size:.88rem;font-weight:600;color:#fff;display:flex;align-items:center;gap:6px;transition:.2s}
+.district-chip::before{content:"";display:inline-block;width:12px;height:12px;flex-shrink:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z'/%3E%3Ccircle cx='12' cy='10' r='3'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;background-size:contain}
+.district-chip:hover{background:rgba(255,255,255,.22)}
+.districts-note{font-size:.83rem;color:rgba(255,255,255,.55);border-top:1px solid rgba(255,255,255,.12);padding-top:16px;margin-top:8px}
+.rel-cards{display:flex;gap:12px;flex-wrap:wrap}
+.rel-card{display:flex;align-items:center;gap:8px;background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:11px 18px;font-weight:700;font-size:.88rem;color:var(--navy);transition:.2s;text-decoration:none}
+.rel-arrow{color:var(--red);font-weight:900}
+.rel-card:hover{background:var(--navy);color:#fff}
+.rel-card:hover .rel-arrow{color:#fff}
+@media(max-width:768px){
+  .steps-row{grid-template-columns:1fr}
+  .step-item:not(:last-child)::after{display:none}
+  .step-item{flex-direction:row;text-align:left;gap:14px;padding:14px 0;border-bottom:1px solid var(--border)}
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar"><div class="wrap">
+  <a href="index.html" class="nav-logo"><div class="logo-box"><svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='11' width='18' height='11' rx='2'/><path d='M7 11V7a5 5 0 0 1 10 0v4'/></svg></div><div>LUKUABIPOOD<br><span class="logo-sub">Lukksepp</span></div></a>
+  <ul class="nav-links">
+    <li><a href="index.html" id="nl-home">Avaleht</a></li>
+    <li><a href="services.html" class="active" id="nl-srv">Teenused</a></li>
+    <li><a href="products.html" id="nl-prod">Tooted</a></li>
+    <li><a href="contact.html" id="nl-con">Kontakt</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="tel:+37256817777" class="nav-call"><svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z'/></svg> +372 5681 7777</a>
+    <div class="lang-d">
+      <button onclick="setLang('et')" data-l="et">ET</button>
+      <button onclick="setLang('ru')" data-l="ru">RU</button>
+      <button onclick="setLang('en')" data-l="en">EN</button>
+    </div>
+    <button class="burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  </div>
+</div></nav>
+
+<div class="mm-overlay" id="overlay" onclick="closeMenu()"></div>
+<div class="mm" id="mm">
+  <div class="mm-head"><div class="mm-logo"><div class="logo-box"><svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='11' width='18' height='11' rx='2'/><path d='M7 11V7a5 5 0 0 1 10 0v4'/></svg></div> LUKUABIPOOD OÜ</div><button class="mm-close" onclick="closeMenu()">✕</button></div>
+  <a href="tel:+37256817777" class="mm-phone"><svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z'/></svg> +372 5681 7777</a>
+  <nav class="mm-nav">
+    <a href="index.html"><span class="ni"><svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/><polyline points='9 22 9 12 15 12 15 22'/></svg></span><span id="ml-home"></span></a>
+    <a href="services.html" class="active"><span class="ni"><svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='3'/><path d='M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14'/></svg></span><span id="ml-srv"></span></a>
+    <a href="products.html"><span class="ni"><svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='2' y='3' width='20' height='14' rx='2'/><line x1='8' y1='21' x2='16' y2='21'/><line x1='12' y1='17' x2='12' y2='21'/></svg></span><span id="ml-prod"></span></a>
+    <a href="contact.html"><span class="ni"><svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z'/></svg></span><span id="ml-con"></span></a>
+  </nav>
+  <div class="mm-lang"><div class="mm-lang-btns">
+    <button onclick="setLang('et')" data-l="et">Eesti</button>
+    <button onclick="setLang('ru')" data-l="ru">Русский</button>
+    <button onclick="setLang('en')" data-l="en">English</button>
+  </div></div>
+</div>
+
+<main>
+
+<!-- Hero -->
+<div class="srv-hero"><div class="wrap">
+  <a href="services.html" class="back-btn" id="bc-back">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      <span id="bc-back-txt">Tagasi teenustesse</span>
+    </a>
+    <nav style="font-size:.8rem;margin-bottom:14px;opacity:.7">
+    <a href="index.html" style="color:#fff" id="bc-home">Avaleht</a>
+    <span style="margin:0 5px">›</span>
+    <a href="services.html" style="color:#fff" id="bc-srv">Teenused</a>
+    <span style="margin:0 5px">›</span>
+    <span id="bc-cur">Luku vahetus</span>
+  </nav>
+  <h1 id="pg-h1">Lukkude vahetus Tallinnas</h1>
+  <p class="lead" id="pg-lead">Kolite sisse, vahetasite üürilist või ei usalda enam vana lukku? Õige otsus on luku vahetus — enamasti teeme selle ära sama visiidiga.</p>
+  <div style="margin-top:22px"><a href="tel:+37256817777" class="btn btn-red btn-lg"><svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z'/></svg> +372 5681 7777</a></div>
+</div></div>
+
+<!-- Benefits -->
+<section><div class="wrap">
+  <h2 class="sec-title" id="benefits-title" style="margin-bottom:24px">Miks valida meid?</h2>
+  <div class="benefits-grid" id="benefits-grid"></div>
+</div></section>
+
+<!-- How -->
+<section style="background:var(--bg2)"><div class="wrap">
+  <h2 class="sec-title" id="how-title" style="margin-bottom:28px">Kuidas see toimib?</h2>
+  <div class="steps-row" id="steps-grid"></div>
+</div></section>
+
+<!-- Price -->
+<section><div class="wrap">
+  <h2 class="sec-title" id="price-title" style="margin-bottom:14px">Hind</h2>
+  <div class="price-box" id="price-text">Luku vahetus alates <strong>15 EUR</strong> + luku maksumus. Paigaldus alates <strong>25 EUR</strong>. Kõik hinnad sisaldavad KM 24%.</div>
+</div></section>
+
+<!-- Districts -->
+<div class="districts-section">
+<div class="wrap">
+  <span class="sec-label" id="dist-label"></span>
+  <h2 id="dist-title"></h2>
+  <p class="sec-sub" id="dist-sub"></p>
+  <div class="districts-grid" id="districts-grid"></div>
+  <p class="districts-note" id="dist-note"></p>
+</div>
+</div>
+
+<!-- FAQ -->
+<section><div class="wrap">
+  <h2 class="sec-title" id="faq-title" style="margin-bottom:24px">Korduma kippuvad küsimused</h2>
+  <div class="faq-list" id="faq-list"></div>
+</div></section>
+
+<!-- Related -->
+<section style="background:var(--bg2)"><div class="wrap">
+  <h2 class="sec-title" id="related-title" style="margin-bottom:16px"></h2>
+  <div class="rel-cards">
+    <a href="luku-avamine-tallinn.html" class="rel-card" data-et="Luku avamine" data-ru="Вскрытие замков" data-en="Lock opening"><span class="rel-arrow">→</span><span class="rel-label"></span></a>
+    <a href="fonolukud.html" class="rel-card" data-et="Fonolukud" data-ru="Домофоны" data-en="Intercoms"><span class="rel-arrow">→</span><span class="rel-label"></span></a>
+    <a href="seifi-avamine.html" class="rel-card" data-et="Seifi avamine" data-ru="Вскрытие сейфа" data-en="Safe opening"><span class="rel-arrow">→</span><span class="rel-label"></span></a>
+    <a href="services.html" class="rel-card rel-card-back" id="rel-back"><span class="rel-arrow">←</span><span id="rel-back-txt">Kõik teenused</span></a>
+    </div>
+</div></section>
+
+<!-- CTA -->
+<section class="cta-banner"><div class="wrap tc">
+  <h2 id="cta-title" style="color:#fff;margin-bottom:10px"></h2>
+  <p id="cta-sub" style="color:rgba(255,255,255,.75);margin-bottom:24px"></p>
+  <a href="tel:+37256817777" class="btn btn-red btn-lg"><svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z'/></svg> +372 5681 7777</a>
+  &nbsp;
+  <a href="contact.html" class="btn btn-wh btn-lg" id="cta-write"></a>
+</div></section>
+
+</main>
+
+<footer><div class="wrap">
+  <div class="foot-grid">
+    <div><div class="foot-logo"><div class="lb"><svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='11' width='18' height='11' rx='2'/><path d='M7 11V7a5 5 0 0 1 10 0v4'/></svg></div> LUKUABIPOOD OÜ</div><p class="foot-desc" id="ft-desc"></p></div>
+    <div><h4 id="ft-nav"></h4><ul><li><a href="index.html" id="ft-home"></a></li><li><a href="services.html" id="ft-srv2"></a></li><li><a href="products.html" id="ft-prod2"></a></li><li><a href="contact.html" id="ft-con2"></a></li></ul></div>
+    <div><h4 id="ft-svtitle"></h4><ul>
+      <li><a href="luku-avamine-tallinn.html" id="ft-s1"></a></li>
+      <li><a href="autode-avamine.html" id="ft-s2"></a></li>
+      <li><a href="lukkude-vahetus.html" id="ft-s3"></a></li>
+      <li><a href="fonolukud.html" id="ft-s4"></a></li>
+      <li><a href="seifi-avamine.html" id="ft-s5"></a></li>
+    </ul></div>
+    <div><h4 id="ft-ctitle"></h4><ul>
+      <li><a href="tel:+37256817777"><svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z'/></svg> +372 5681 7777</a></li>
+      <li><a href="mailto:info@lukuabi-24.ee">✉️ info@lukuabi-24.ee</a></li>
+      <li><span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Tallinn / Helsinki</span></li>
+    </ul></div>
+  </div>
+  <div class="foot-btm">
+    <p id="ft-copy"></p>
+    <a href="cookie-policy.html" style="font-size:.78rem;color:rgba(255,255,255,.4)">Cookie Policy</a>
+    <div class="foot-lang"><button onclick="setLang('et')" data-l="et">ET</button><button onclick="setLang('ru')" data-l="ru">RU</button><button onclick="setLang('en')" data-l="en">EN</button></div>
+  </div>
+</div></footer>
+
+<a href="tel:+37256817777" class="fab"><svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z'/></svg></a>
+
+<script>
+const NAVL={et:{home:"Avaleht",srv:"Teenused",prod:"Tooted",con:"Kontakt",write:"Kirjuta meile",ftdesc:"Professionaalne lukksepa teenus Tallinnas.",ftnav:"Navigatsioon",ftsvt:"Teenused",ftct:"Kontakt",fts:["Luku avamine","Autode avamine","Luku vahetus","Fonolukud","Seifi avamine"],ftcopy:"© YEAR LUKUABIPOOD OÜ. Kõik õigused kaitstud."},ru:{home:"Главная",srv:"Услуги",prod:"Товары",con:"Контакты",write:"Написать нам",ftdesc:"Профессиональный слесарный сервис в Таллине.",ftnav:"Навигация",ftsvt:"Услуги",ftct:"Контакты",fts:["Вскрытие замков","Вскрытие авто","Замена замка","Домофоны","Вскрытие сейфа"],ftcopy:"© YEAR LUKUABIPOOD OÜ. Все права защищены."},en:{home:"Home",srv:"Services",prod:"Products",con:"Contact",write:"Write to us",ftdesc:"Professional locksmith service in Tallinn.",ftnav:"Navigation",ftsvt:"Services",ftct:"Contact",fts:["Lock opening","Car opening","Lock replacement","Intercoms","Safe opening"],ftcopy:"© YEAR LUKUABIPOOD OÜ. All rights reserved."}};
+const PT={"et": {"meta_title": "Lukkude Vahetus Tallinnas – LUKUABIPOOD OÜ", "meta_desc": "Professionaalne luku vahetus ja paigaldus Tallinnas. Kõik luku tüübid, juhtivad tootjad. Alates 15 EUR.", "kw": "lukkude vahetus Tallinn, luku vahetus, luku paigaldus", "h1": "Lukkude vahetus Tallinnas", "lead": "Kolite sisse, vahetasite üürilist või ei usalda enam vana lukku? Õige otsus on luku vahetus — enamasti teeme selle ära sama visiidiga.", "bc": "Luku vahetus", "benefits": [["🔒", "Kõik luku tüübid", "Silinderlukud, turvalukud, nutilukud, elektrilukud."], ["🏆", "Juhtivad tootjad", "Abloy, CISA, Mul-T-Lock, Yale, Mottura ja teised."], ["⚡", "Kiire paigaldus", "Vahetus tavaliselt sama visiidi jooksul."], ["🛡️", "Turvaline valik", "Soovitame just teie ukse jaoks sobivat lukku."], ["💳", "Alates 15 EUR", "Luku vahetus alates 15 EUR + luku maksumus (KM sisaldub)."], ["🔑", "Uued võtmed", "Valmistame vajalikul hulgal võtmeid kohapeal."]], "how_title": "Kuidas see toimib?", "steps": [["1", "Helistage või kirjutage", "Kirjeldage vajadust — soovitame parima."], ["2", "Visiit", "Lukksepp hindab olukorra kohapeal."], ["3", "Vahetus", "Vana lukk eemaldatakse, uus paigaldatakse."], ["4", "Testimine", "Kõik töötab — saate võtmed kätte."]], "price_title": "Hind", "price_text": "Luku vahetus alates <strong>15 EUR</strong> + luku maksumus. Paigaldus alates <strong>25 EUR</strong>. Kõik hinnad sisaldavad KM 24%.", "cta_title": "Vajate luku vahetust?", "cta_sub": "Helistage — tuleme ja lahendame!"}, "ru": {"meta_title": "Замена Замков в Таллине – LUKUABIPOOD OÜ", "meta_desc": "Профессиональная замена и установка замков в Таллине. Все типы замков. От 15 EUR.", "kw": "замена замка Таллин, установка замка, смена замка", "h1": "Замена замков в Таллине", "lead": "Нужны более надёжные замки? Переезжаете? Мы устанавливаем и заменяем все типы замков быстро и профессионально.", "bc": "Замена замков", "benefits": [["🔒", "Все типы замков", "Цилиндровые, замки безопасности, умные замки, электрозамки."], ["🏆", "Ведущие производители", "Abloy, CISA, Mul-T-Lock, Yale, Mottura и другие."], ["⚡", "Быстрая установка", "Замена обычно за один визит."], ["🛡️", "Безопасный выбор", "Подбираем замок под вашу дверь."], ["💳", "От 15 EUR", "Замена от 15 EUR + стоимость замка (НДС включён)."], ["🔑", "Новые ключи", "Изготавливаем нужное количество ключей на месте."]], "how_title": "Как это работает?", "steps": [["1", "Позвоните или напишите", "Опишите задачу — подберём лучшее."], ["2", "Визит", "Слесарь оценит ситуацию на месте."], ["3", "Замена", "Старый снимается, новый устанавливается."], ["4", "Тест", "Всё работает — получаете ключи."]], "price_title": "Стоимость", "price_text": "Замена замка от <strong>15 EUR</strong> + стоимость замка. Установка от <strong>25 EUR</strong>. Все цены включают НДС 24%.", "cta_title": "Нужна замена замка?", "cta_sub": "Звоните — приедем и решим!"}, "en": {"meta_title": "Lock Replacement in Tallinn – LUKUABIPOOD OÜ", "meta_desc": "Professional lock replacement and installation in Tallinn. All lock types. From 15 EUR.", "kw": "lock replacement Tallinn, lock installation, locksmith Tallinn", "h1": "Lock replacement in Tallinn", "lead": "Moving in, changed tenants or just don't trust the old lock anymore? The right call is a lock replacement — we usually do it in one visit.", "bc": "Lock replacement", "benefits": [["🔒", "All lock types", "Cylinder locks, security locks, smart locks, electric locks."], ["🏆", "Leading brands", "Abloy, CISA, Mul-T-Lock, Yale, Mottura and others."], ["⚡", "Fast installation", "Replacement usually done in one visit."], ["🛡️", "Right lock for you", "We recommend the best lock for your door."], ["💳", "From 15 EUR", "Replacement from 15 EUR + lock cost (VAT included)."], ["🔑", "New keys", "We cut as many keys as needed on site."]], "how_title": "How does it work?", "steps": [["1", "Call or write", "Describe your need — we recommend the best."], ["2", "Technician visit", "Locksmith assesses on site."], ["3", "Replacement", "Old lock removed, new one installed."], ["4", "Test", "Everything works — keys in hand."]], "price_title": "Pricing", "price_text": "Lock replacement from <strong>15 EUR</strong> + lock cost. Installation from <strong>25 EUR</strong>. All prices include VAT 24%.", "cta_title": "Need a lock replacement?", "cta_sub": "Call us — we will come and sort it!"}};
+const FAQ_DATA={"et": [["Kui kiiresti kohale jõuate?", "Tallinnas jõuame kohale tavaliselt 15–25 minutiga pärast väljakutset. Reageerime kiiresti ka nädalavahetustel."], ["Kas avate uksi kahjustamata?", "Jah, kasutame professionaalseid tööriistu, mis võimaldavad uksi avada ilma kahjustusi tekitamata. Enamasti jääb lukk täielikult terveks."], ["Kas töötate nädalavahetustel?", "Jah, töötame ka nädalavahetustel ja riiklikel pühadel. Helistage igal ajal."], ["Kui palju maksab luku avamine?", "Ühe luku avamine alates 9 EUR (KM 24% sisaldub). Täpne hind sõltub luku tüübist. Hind teatatakse alati enne töö algust."], ["Millised lukud te avada oskate?", "Avame kõikvõimalikke lukke: silinderlukke, turvalukke, sertifitseeritud lukke (Abloy, CISA, Mul-T-Lock) ja vanema konstruktsiooniga lukke."], ["Kas saate aidata ka autoga?", "Jah, avame kõikide markide autosid kiiresti ja kahjustuseta. Hind alates 10 EUR."], ["Kas teete võtmeid või saab lukku ümber kodeerida?", "Võtmete valmistamist me ei paku, kuid saame lukku ümber kodeerida — pärast seda vana võti enam ei tööta ja valmistatakse uus. Ideaalne lahendus kolimisel või võtmete kaotamisel."]], "ru": [["Как быстро вы приедете?", "По Таллину мы обычно приезжаем за 15–25 минут после вызова. Реагируем быстро и в выходные дни."], ["Вы открываете двери без повреждений?", "Да, мы используем профессиональные инструменты, которые позволяют открыть замок без повреждений. В большинстве случаев замок остаётся полностью целым."], ["Вы работаете в выходные?", "Да, работаем в выходные и праздничные дни. Звоните в любое время."], ["Сколько стоит вскрытие замка?", "Вскрытие одного замка от 9 EUR (НДС 24% включён). Точная цена зависит от типа замка. Цена всегда сообщается до начала работы."], ["Какие замки вы умеете открывать?", "Мы открываем любые замки: цилиндровые, замки безопасности, сертифицированные (Abloy, CISA, Mul-T-Lock) и старые конструкции."], ["Вы помогаете с машинами?", "Да, открываем автомобили всех марок быстро и без повреждений. Цена от 10 EUR."], ["Делаете ли вы ключи или можно перекодировать замок?", "Изготовление ключей мы не предоставляем, но можем перекодировать замок — после этого старый ключ больше не подходит и изготавливается новый. Идеальное решение при переезде или потере ключей."]], "en": [["How quickly do you arrive?", "In Tallinn we typically arrive within 15-25 minutes of your call. We respond fast on weekends too."], ["Do you open doors without damage?", "Yes, we use professional tools that allow us to open locks without damage. In most cases the lock stays completely intact."], ["Do you work on weekends?", "Yes, we work on weekends and public holidays. Call us any time."], ["How much does lock opening cost?", "Opening one lock from 9 EUR (VAT 24% included). The exact price depends on the lock type. Price is always confirmed before work begins."], ["What types of locks can you open?", "We open all types of locks: cylinder locks, security locks, certified locks (Abloy, CISA, Mul-T-Lock) and older constructions."], ["Do you also help with cars?", "Yes, we open all car makes quickly and without damage. Price from 10 EUR."], ["Do you make keys or can you rekey a lock?", "We do not offer key cutting, but we can rekey a lock — after rekeying the old key no longer works and a new one is made. The ideal solution when moving home or losing keys."]]};
+const DIST={"et": {"label": "Teeninduspiirkond", "title": "Lukksepp teenused Tallinnas ja Harjumaal", "sub": "Tuleme kohale kõikidesse Tallinna linnaosadesse ja Harjumaale. Kiire reageerimine igal pool.", "areas": ["Lasnamäe", "Mustamäe", "Õismäe", "Kesklinn", "Pirita", "Viimsi", "Kristiine", "Nõmme", "Põhja-Tallinn", "Haabersti", "Kalamaja", "Pelgulinn"], "note": "Lisaks Tallinnale teenindame ka Maardu, Saue, Keila, Paldiski ja kogu Harjumaad. Väljaspool Tallinna lisandub sõidukulu 1 EUR/km."}, "ru": {"label": "Зона обслуживания", "title": "Услуги слесаря в Таллине и уезде Харью", "sub": "Приезжаем во все районы Таллина и уезд Харью. Быстрый выезд в любую точку.", "areas": ["Ласнамяэ", "Мустамяэ", "Ыйсмяэ", "Кесклинн", "Пирита", "Виймси", "Кристийне", "Нымме", "Пыхья-Таллинн", "Хааберсти", "Каламая", "Пелгулинн"], "note": "Помимо Таллина обслуживаем Маарду, Сауэ, Кейла, Палдиски и весь уезд Харью. За пределами Таллина добавляется стоимость поездки 1 EUR/км."}, "en": {"label": "Service area", "title": "Locksmith services in Tallinn and Harju County", "sub": "We cover all Tallinn districts and Harju County. Fast response everywhere.", "areas": ["Lasnamäe", "Mustamäe", "Õismäe", "Kesklinn", "Pirita", "Viimsi", "Kristiine", "Nõmme", "Põhja-Tallinn", "Haabersti", "Kalamaja", "Pelgulinn"], "note": "In addition to Tallinn we serve Maardu, Saue, Keila, Paldiski and all of Harju County. Outside Tallinn a travel surcharge of 1 EUR/km applies."}};
+let lang=localStorage.getItem("lang")||"et";
+function $$(id){return document.getElementById(id)}
+function set(id,v){const e=$$(id);if(e)e.textContent=v}
+function setH(id,v){const e=$$(id);if(e)e.innerHTML=v}
+function render(){
+  const t=PT[lang],n=NAVL[lang],d=DIST[lang],fq=FAQ_DATA[lang];
+  document.documentElement.lang=lang;
+  document.title=lang==='et'?'Lukkude Vahetus Tallinnas – LUKUABIPOOD OÜ':(t.h1+' – LUKUABIPOOD OÜ');
+  set("nl-home",n.home);set("nl-srv",n.srv);set("nl-prod",n.prod);set("nl-con",n.con);
+  set("ml-home",n.home);set("ml-srv",n.srv);set("ml-prod",n.prod);set("ml-con",n.con);
+  set("pg-h1",t.h1);set("pg-lead",t.lead);
+  set("bc-home",n.home);set("bc-back-txt",lang==="ru"?"К услугам":lang==="en"?"Back to services":"Tagasi teenustesse");set("bc-srv",n.srv);set("bc-cur",t.bc);
+  set("benefits-title",lang==="et"?"Miks valida meid?":lang==="ru"?"Почему выбирают нас?":"Why choose us?");
+  const bg=$$("benefits-grid");
+  if(bg)bg.innerHTML=t.benefits.map(b=>'<div class="benefit-card"><div class="benefit-icon">'+b[0]+'</div><div><h3>'+b[1]+'</h3><p>'+b[2]+'</p></div></div>').join("");
+  set("how-title",t.how_title);
+  const sg=$$("steps-grid");
+  if(sg)sg.innerHTML=t.steps.map(s=>'<div class="step-item"><div class="step-num">'+s[0]+'</div><div><h4>'+s[1]+'</h4><p>'+s[2]+'</p></div></div>').join("");
+  set("price-title",t.price_title);setH("price-text",t.price_text);
+  set("cta-title",t.cta_title);set("cta-sub",t.cta_sub);set("cta-write",n.write);
+  // districts
+  set("dist-label",d.label);set("dist-title",d.title);set("dist-sub",d.sub);set("dist-note",d.note);
+  const dg=$$("districts-grid");
+  const _DL={"Õismäe":"lukuabi-oismae.html","Lasnamäe":"lukuabi-lasnamae.html","Mustamäe":"lukuabi-mustamae.html","Kesklinn":"lukuabi-kesklinn.html","Pirita":"lukuabi-pirita.html","Viimsi":"lukuabi-viimsi.html","Mustakivi":"lukuabi-oismae.html","Ласнамяэ":"lukuabi-lasnamae.html","Мустамяэ":"lukuabi-mustamae.html","Кесклинн":"lukuabi-kesklinn.html","Пирита":"lukuabi-pirita.html","Виймси":"lukuabi-viimsi.html","Мустакиви":"lukuabi-oismae.html"};
+  if(dg)dg.innerHTML=d.areas.map(a=>_DL[a]?`<a href="${_DL[a]}" class="district-chip district-chip-link">${a}</a>`:`<span class="district-chip">${a}</span>`).join("");
+  // FAQ
+  set("faq-title",lang==="et"?"Korduma kippuvad küsimused":lang==="ru"?"Часто задаваемые вопросы":"Frequently asked questions");
+  const fl=$$("faq-list");
+  if(fl){fl.innerHTML=fq.map((item,i)=>'<div class="faq-item" id="faq-'+i+'"><div class="faq-q" onclick="toggleFaq('+i+')"><span>'+item[0]+'</span><span class="faq-arrow">▼</span></div><div class="faq-a">'+item[1]+'</div></div>').join("");}
+  // related
+  set("rel-back-txt",lang==="ru"?"Все услуги":lang==="en"?"All services":"Kõik teenused");set("related-title",lang==="et"?"Seotud teenused":lang==="ru"?"Связанные услуги":"Related services");
+  document.querySelectorAll(".rel-card").forEach(c=>{const l=c.querySelector(".rel-label");if(l)l.textContent=c.dataset[lang]||c.dataset.et;});
+  // footer
+  set("ft-desc",n.ftdesc);set("ft-nav",n.ftnav);set("ft-home",n.home);set("ft-srv2",n.srv);set("ft-prod2",n.prod);set("ft-con2",n.con);set("ft-svtitle",n.ftsvt);set("ft-ctitle",n.ftct);setH("ft-copy",(n.ftcopy||"").replace("YEAR",new Date().getFullYear()));
+  n.fts.forEach((s,i)=>set("ft-s"+(i+1),s));
+  document.querySelectorAll("[data-l]").forEach(b=>b.classList.toggle("active",b.dataset.l===lang));
+}
+function toggleFaq(i){const el=document.getElementById("faq-"+i);if(el)el.classList.toggle("open");}
+function setLang(l){lang=l;localStorage.setItem("lang",l);render();}
+function toggleMenu(){const o=$$("overlay"),m=$$("mm"),b=$$("burger");o.classList.toggle("open");m.classList.toggle("open");b.classList.toggle("open");document.body.style.overflow=m.classList.contains("open")?"hidden":"";}
+function closeMenu(){$$("overlay").classList.remove("open");$$("mm").classList.remove("open");$$("burger").classList.remove("open");document.body.style.overflow="";}
+function cookieSettings(){}
+document.addEventListener("DOMContentLoaded",()=>{render();const mm=$$("mm");if(mm){let tx=0;mm.addEventListener("touchstart",e=>{tx=e.changedTouches[0].clientX},{passive:true});mm.addEventListener("touchend",e=>{if(e.changedTouches[0].clientX-tx>60)closeMenu()},{passive:true});}});
+</script>
+
+</body>
+</html>

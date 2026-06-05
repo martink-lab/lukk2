@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 64" width="220" height="64" role="img" aria-label="PROFF LUKUABI OÜ">
+  <title>PROFF LUKUABI OÜ</title>
+
+  <!-- Lock icon -->
+  <g transform="translate(10,32)">
+    <!-- Shackle -->
+    <path d="M-9,-18 C-9,-27 9,-27 9,-18 L9,-9 L-9,-9 Z" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Body -->
+    <rect x="-12" y="-9" width="24" height="20" rx="3" fill="white"/>
+    <!-- Keyhole circle -->
+    <circle cx="0" cy="5" r="4" fill="black"/>
+    <!-- Keyhole stem -->
+    <rect x="-2" y="7" width="4" height="5" rx="1" fill="black"/>
+  </g>
+
+  <!-- PROFF -->
+  <text x="30" y="26" font-family="'Arial Black','Helvetica Neue',Arial,sans-serif" font-weight="900" font-size="24" fill="white" letter-spacing="2">PROFF</text>
+
+  <!-- thin separator -->
+  <line x1="30" y1="31" x2="215" y2="31" stroke="white" stroke-width="0.5" opacity="0.25"/>
+
+  <!-- LUKUABI -->
+  <text x="30" y="52" font-family="'Arial Black','Helvetica Neue',Arial,sans-serif" font-weight="900" font-size="19" fill="white" letter-spacing="4">LUKUABI</text>
+
+  <!-- OÜ badge -->
+  <rect x="190" y="7" width="24" height="13" rx="2.5" fill="white" opacity="0.9"/>
+  <text x="202" y="17.5" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="8" fill="black" text-anchor="middle">OÜ</text>
+</svg>
